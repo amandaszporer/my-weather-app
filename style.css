@@ -1,0 +1,74 @@
+h1 {
+  color: #ffffff;
+  font-size: 60px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.search {
+  margin-top: 20px;
+}
+
+.date-time {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.current-icon {
+  font-size: 200px;
+  padding: 20px;
+  text-align: center;
+}
+.current-temperature {
+  font-size: 80px;
+  font-weight: 600;
+}
+.farenheit {
+  font-size: 40px;
+  font-weight: 400;
+}
+#celsius-temp {
+  font-size: 40px;
+}
+.temperature-range {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.container {
+  background: linear-gradient(#024cad, #fff);
+  max-width: 650px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.forecast {
+  color: #024cad;
+  text-align: center;
+  padding: 30px;
+  font-size: 20px;
+}
+.icon {
+  color: #ffffff;
+  font-size: 20px;
+}
+.more-info {
+  font-size: 20px;
+}
+a {
+  color: #fff;
+}
+a:hover {
+  color: aliceblue;
+}
+#current-location {
+  position: relative;
+  bottom: 5px;
+}
+#description {
+  text-transform: capitalize;
+  font-size: 20px;
+  margin: 10px 0 0 30px;
+}

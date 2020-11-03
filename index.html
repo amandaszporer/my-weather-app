@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/4a93e8a486.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <h1></h1>
+            </div>
+            <div class="col">
+                <form class="search" id="search-city">
+                    <div class="form-row align-items-center">
+                        <div class="col-6">
+                            <input type="text" class="form-control mb-2" placeholder="Enter city" id="city"
+                                autocomplete="off" autofocus="on" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-light mb-2">🔍</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-outline-light" id="current-location">Current
+                                Location</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="col">
+
+                </div>
+            </div>
+        </div>
+        <div class="row date-time">
+            <div class="col-3">
+                <i class="far fa-calendar-check"></i>
+                <span id="day"> </span>
+            </div>
+            <div class="col-3">
+                <i class="far fa-clock"></i>
+                <span id="time"> </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p id="description"> </p>
+                <i class="fas fa-sun current-icon"> </i>
+            </div>
+            <div class="col">
+                <div class="current-temperature">
+                    <span id="current-temp"> </span><a href="#" id="celsius-temp">°C</a> <span class="farenheit"> |<a
+                            href="#" id="farenheit-temp">°F</a> </span>
+                </div>
+                <div class="temperature-range"><span id="min-temp"></span>°- <span id="max-temp"> </span>°</div>
+                <div class="more-info">
+                    Feels Like: <span id="feels-like"> - </span>° <br />
+                    Humidity: <span id="humidity"> - </span>% <br />
+                    Wind: <span id="wind"> - </span> km/h
+                </div>
+            </div>
+        </div>
+        <div class="row forecast">
+            <div class="col">
+                SAT <br />
+                <i class="fas fa-cloud-sun icon"></i>
+                <br />
+                26° - 30°
+            </div>
+            <div class="col">
+                SUN <br />
+                <i class="fas fa-cloud-sun icon"></i>
+                <br />
+                26° - 30°
+            </div>
+            <div class="col">
+                MON <br />
+                <i class="fas fa-cloud-sun icon"></i>
+                <br />
+                26° - 30°
+            </div>
+            <div class="col">
+                TUE <br />
+                <i class="fas fa-cloud-sun icon"></i>
+                <br />
+                26° - 30°
+            </div>
+            <div class="col">
+                WED <br />
+                <i class="fas fa-cloud-sun icon"></i>
+                <br />
+                26° - 30°
+            </div>
+        </div>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+
+</html>
