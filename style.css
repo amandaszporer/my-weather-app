@@ -57,10 +57,10 @@ h1 {
 .more-info {
   font-size: 20px;
 }
-a {
+.conversion-link {
   color: #fff;
 }
-a:hover {
+.conversion-link:hover {
   color: aliceblue;
 }
 #current-location {
@@ -71,4 +71,9 @@ a:hover {
   text-transform: capitalize;
   font-size: 20px;
   margin: 10px 0 0 30px;
+}
+footer {
+  color: #024cad;
+  margin-left: 30px;
+  font-size: 17px;
 }
