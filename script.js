@@ -45,7 +45,7 @@ function updateTime (){
   function handleSubmit(event){
     event.preventDefault()
     let city = document.querySelector("#city")
-    search(city);
+    search(city.value);
   }
   
   searchCity.addEventListener("submit", handleSubmit)
