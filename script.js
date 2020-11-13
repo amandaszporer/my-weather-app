@@ -1,35 +1,31 @@
-let now = new Date()
 let apiKey = "5245c70173752e9c7a1ea0e23d87c083"
 let celsiusTemp = null
 let feelsLikeCelsius = null
 let maxTempCelsius = null
 let minTempCelsius = null
 
-function updateTime (){
-  let time = document.querySelector("#time")
-  let hour = now.getHours();
-  let minutes = now.getMinutes()
-  if (minutes < 10) {
-    minutes = `0${minutes}`
-  } 
-  if (hour < 10) {
-    hour = `0${hour}`
-  }
-  time.innerHTML = (`${hour}:${minutes}`)}
-  
-  updateTime();
-  
-  function updateDay (weekday){
+let searchCity = document.querySelector("#search-city");
+
+  function formatDate (timestamp){
+    let date = new Date (timestamp)
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    let day = document.querySelector("#day")  
-    day.innerHTML = (days[weekday])
+    return (days[date.getDay()])
+   
   }
-  updateDay(now.getDay());
-  
-  let searchCity = document.querySelector("#search-city");
-  
+  function formatHours(timestamp){
+  let date = new Date (timestamp)
+  let time = document.querySelector("#time")
+  let hour = date.getHours();
+  let minutes = date.getMinutes()
+    if (minutes < 10) {
+     minutes = `0${minutes}`
+      } 
+    if (hour < 10) {
+      hour = `0${hour}`
+      }
+  return ` ${hour}:${minutes}`}
+
   function updateTemperature (response){
-    console.log(response.data)
     document.querySelector("h1").innerHTML = response.data.name
     document.querySelector("#current-temp").innerHTML = `${Math.round(response.data.main.temp)} `
     document.querySelector("#humidity").innerHTML = response.data.main.humidity
@@ -38,16 +34,46 @@ function updateTime (){
     document.querySelector("#max-temp").innerHTML = Math.round(response.data.main.temp_max)
     document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like)
     document.querySelector("#description").innerHTML = response.data.weather[0].description
+    document.querySelector("#day").innerHTML = formatDate(response.data.dt*1000)
+    document.querySelector("#time").innerHTML = formatHours(response.data.dt*1000)
+    
+    document.querySelector("#current-icon").setAttribute ("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png` )
     celsiusTemp = response.data.main.temp
     feelsLikeCelsius = response.data.main.feels_like
     maxTempCelsius = response.data.main.temp_max
     minTempCelsius = response.data.main.temp_min
-   
   }
+
+  function displayForecast (response){
+    let forecastElement = document.querySelector("#forecast")
+    forecastElement.innerHTML = null
+    let forecast = null
+    for (let index = 0; index < 2; index++) {
+      forecast = response.data.list[index]
+      forecastElement.innerHTML += `
+      <div class="col-2">
+                  <h3>
+                  ${formatHours(forecast.dt)}
+                  </h3>
+                  <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" id="forecast-image">
+                  <div>
+                  <strong>${Math.round(forecast.main.temp_max)}° </strong> ${Math.round(forecast.main.temp_min)}°</div>
+                 
+              </div>
+      `
+      
+    }
+    
+
+    
+  }
+
 
   function search(city){
     let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&&units=metric`
     axios.get(apiEndPoint).then(updateTemperature)
+    let apiEndPointForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&&units=metric`
+    axios.get(apiEndPointForecast).then(displayForecast)
   }
 
   function handleSubmit(event){
@@ -87,6 +113,8 @@ function handlePosition(position){
   let lon = position.coords.longitude
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&&units=metric`
   axios.get(apiUrl).then(updateTemperature)
+
+
 }
 
 function getLocation(event){
@@ -98,4 +126,4 @@ currentLocation.addEventListener("click", getLocation)
 
 
 
-getLocation();
+search("Tel Aviv");

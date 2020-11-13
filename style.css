@@ -3,6 +3,11 @@ h1 {
   font-size: 60px;
   margin-left: 20px;
   margin-top: 20px;
+  padding: 0;
+}
+h3 {
+  font-size: 20px;
+  padding: 0;
 }
 
 footer {
@@ -10,7 +15,12 @@ footer {
   margin-left: 30px;
   font-size: 17px;
 }
-
+#current-icon {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+}
 .search {
   margin-top: 20px;
 }
@@ -26,12 +36,15 @@ footer {
   text-align: center;
 }
 .current-temperature {
+  position: relative;
+  top: 70px;
   font-size: 80px;
   font-weight: 600;
 }
 
 .temperature-range {
-  font-size: 40px;
+  margin-top: 35px;
+  font-size: 30px;
   font-weight: 500;
 }
 
@@ -77,4 +90,15 @@ footer {
 #fahrenheit-link,
 #celsius-link {
   color: #fff;
+}
+#max-temp {
+  font-weight: 900;
+}
+
+#forecast {
+  text-align: center;
+  color: #024cad;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
 }
