@@ -1,8 +1,8 @@
 h1 {
   color: #ffffff;
   font-size: 60px;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 25px;
+  margin-top: 0px;
   padding: 0;
 }
 h3 {
@@ -14,6 +14,7 @@ footer {
   color: #024cad;
   margin-left: 30px;
   font-size: 17px;
+  margin-top: 10px;
 }
 #current-icon {
   display: block;
@@ -38,7 +39,7 @@ footer {
 .current-temperature {
   position: relative;
   top: 70px;
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 600;
 }
 
@@ -86,6 +87,11 @@ footer {
   position: relative;
   top: -5px;
 }
+.forecast-info {
+  text-align: center;
+  position: relative;
+  right: -11px;
+}
 
 #fahrenheit-link,
 #celsius-link {
@@ -96,9 +102,7 @@ footer {
 }
 
 #forecast {
-  text-align: center;
   color: #024cad;
-  display: block;
-  margin: 0 auto;
-  padding: 0;
+  position: relative;
+  right: 15px;
 }
